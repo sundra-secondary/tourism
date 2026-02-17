@@ -1,73 +1,42 @@
-# React + TypeScript + Vite
+# Wanderlust - Bhutan Tourism
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Wanderlust is a premium, responsive tourism website dedicated to the Land of the Thunder Dragon. This project converts a generic tourism template into a specialized Bhutan travel experience, featuring local destinations, cultural insights, and pricing in Bhutanese Ngultrum (Nu).
 
-Currently, two official plugins are available:
+![Wanderlust Hero](/images/hero_bg.jpg)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Features
 
-## React Compiler
+- **Bhutanese Theme**: Curated content and imagery focusing on Bhutan's spiritual and natural beauty.
+- **Top Destinations**: Detailed itineraries and galleries for Paro, Punakha, Thimphu, and more.
+- **Local Asset Hosting**: All landmark images are hosted locally within the project to ensure 100% reliability and performance.
+- **Responsive Navigation**: A modern, mobile-first navbar with scroll-locking and smooth Framer Motion animations.
+- **Currency Support**: Real-time ready pricing displayed in Ngultrum (Nu).
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🚀 Tech Stack
 
-## Expanding the ESLint configuration
+- **Framework**: [React](https://reactjs.org/) (TypeScript)
+- **Build Tool**: [Vite](https://vitejs.dev/)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **Animations**: [Framer Motion](https://www.framer.com/motion/)
+- **Icons**: [React Icons](https://react-icons.github.io/react-icons/)
+- **Routing**: [React Router DOM](https://reactrouter.com/)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🛠️ Setup & Development
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+1. **Clone the repository**
+2. **Install dependencies**:
+   ```bash
+   npm install
+   ```
+3. **Run in development mode**:
+   ```bash
+   npm run dev
+   ```
+4. **Build for production**:
+   ```bash
+   npm run build
+   ```
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
+*Co-authored-by: sundrabomjan <sundrabomjan@gmail.com>*  
+*Co-authored-by: 12250090.gcit <12250090.gcit@rub.edu.bt>*
