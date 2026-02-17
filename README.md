@@ -4,7 +4,7 @@ Wanderlust is a premium, responsive tourism website dedicated to the Land of the
 
 ![Wanderlust Hero](/images/hero_bg.jpg)
 
-## ✨ Features
+## Features
 
 - **Bhutanese Theme**: Curated content and imagery focusing on Bhutan's spiritual and natural beauty.
 - **Top Destinations**: Detailed itineraries and galleries for Paro, Punakha, Thimphu, and more.
@@ -12,7 +12,7 @@ Wanderlust is a premium, responsive tourism website dedicated to the Land of the
 - **Responsive Navigation**: A modern, mobile-first navbar with scroll-locking and smooth Framer Motion animations.
 - **Currency Support**: Real-time ready pricing displayed in Ngultrum (Nu).
 
-## 🚀 Tech Stack
+## Tech Stack
 
 - **Framework**: [React](https://reactjs.org/) (TypeScript)
 - **Build Tool**: [Vite](https://vitejs.dev/)
@@ -21,7 +21,7 @@ Wanderlust is a premium, responsive tourism website dedicated to the Land of the
 - **Icons**: [React Icons](https://react-icons.github.io/react-icons/)
 - **Routing**: [React Router DOM](https://reactrouter.com/)
 
-## 🛠️ Setup & Development
+## Setup and Development
 
 1. **Clone the repository**
 2. **Install dependencies**:
