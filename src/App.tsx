@@ -9,7 +9,7 @@ import Contact from './pages/Contact';
 
 function App() {
   return (
-    <Router>
+    <Router basename="/tourism">
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
