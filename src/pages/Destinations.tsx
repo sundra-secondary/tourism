@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { HiLocationMarker, HiStar, HiSearch } from 'react-icons/hi';
 import { destinations } from '../data/destinations';
+import { getAssetPath } from '../utils/pathUtils';
 
 const Destinations = () => {
   const [filter, setFilter] = useState('All');
@@ -22,7 +23,7 @@ const Destinations = () => {
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-serif font-bold text-dark mb-4">Explore Destinations</h1>
+          <h1 className="text-4xl md:text-5xl font-bold text-dark mb-4">Explore Destinations</h1>
           <p className="text-gray-600 max-w-2xl mx-auto">Find your dream getaway from our carefully selected list of world-class destinations.</p>
         </div>
 
@@ -68,7 +69,7 @@ const Destinations = () => {
             >
               <div className="relative h-64 overflow-hidden">
                 <img 
-                  src={dest.image} 
+                  src={getAssetPath(dest.image)} 
                   alt={dest.title} 
                   className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
                 />
@@ -86,7 +87,7 @@ const Destinations = () => {
                   <HiLocationMarker className="mr-1 text-primary" />
                   {dest.location}
                 </div>
-                <h3 className="text-xl font-bold text-dark mb-2 font-serif group-hover:text-primary transition-colors">{dest.title}</h3>
+                <h3 className="text-xl font-bold text-dark mb-2 group-hover:text-primary transition-colors">{dest.title}</h3>
                 <p className="text-gray-500 text-sm mb-4 line-clamp-2">{dest.description}</p>
                 <div className="flex justify-between items-center mt-4 pt-4 border-t border-gray-100">
                   <div className="flex flex-col">

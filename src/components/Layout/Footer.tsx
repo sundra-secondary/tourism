@@ -9,7 +9,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
           {/* Brand */}
           <div className="space-y-4">
-            <h3 className="text-2xl font-serif font-bold">Wanderlust<span className="text-secondary">.</span></h3>
+            <h3 className="text-2xl font-bold">Wanderlust<span className="text-secondary">.</span></h3>
             <p className="text-gray-400 text-sm leading-relaxed">
               We create unforgettable journeys for the modern explorer. Discover the world's most breathtaking destinations with us.
             </p>
@@ -23,7 +23,7 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-lg font-serif font-semibold mb-6">Quick Links</h4>
+            <h4 className="text-lg font-semibold mb-6">Quick Links</h4>
             <ul className="space-y-3 text-sm text-gray-400">
               <li><Link to="/" className="hover:text-secondary transition-colors">Home</Link></li>
               <li><Link to="/about" className="hover:text-secondary transition-colors">About Us</Link></li>
@@ -34,7 +34,7 @@ const Footer = () => {
 
           {/* Support */}
           <div>
-            <h4 className="text-lg font-serif font-semibold mb-6">Support</h4>
+            <h4 className="text-lg font-semibold mb-6">Support</h4>
             <ul className="space-y-3 text-sm text-gray-400">
               <li><Link to="/contact" className="hover:text-secondary transition-colors">Contact Us</Link></li>
               <li><Link to="/faq" className="hover:text-secondary transition-colors">FAQ</Link></li>
@@ -45,7 +45,7 @@ const Footer = () => {
 
           {/* Newsletter */}
           <div>
-            <h4 className="text-lg font-serif font-semibold mb-6">Newsletter</h4>
+            <h4 className="text-lg font-semibold mb-6">Newsletter</h4>
             <p className="text-gray-400 text-sm mb-4">Subscribe to get special offers and travel inspiration.</p>
             <form className="flex flex-col space-y-2">
               <input 

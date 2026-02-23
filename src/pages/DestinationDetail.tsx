@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { HiLocationMarker, HiStar, HiClock, HiCheck } from 'react-icons/hi';
 import { destinations } from '../data/destinations';
 import { useState } from 'react';
+import { getAssetPath } from '../utils/pathUtils';
 
 const DestinationDetail = () => {
   const { id } = useParams();
@@ -26,7 +27,7 @@ const DestinationDetail = () => {
       {/* Hero Header */}
       <div className="relative h-[60vh] w-full">
         <img 
-          src={destination.image} 
+          src={getAssetPath(destination.image)} 
           alt={destination.title} 
           className="w-full h-full object-cover" 
         />
@@ -44,7 +45,7 @@ const DestinationDetail = () => {
                   <span className="text-sm font-bold">{destination.rating}</span>
                 </div>
               </div>
-              <h1 className="text-4xl md:text-6xl font-serif font-bold mb-2">{destination.title}</h1>
+              <h1 className="text-4xl md:text-6xl font-bold mb-2">{destination.title}</h1>
               <div className="flex items-center text-lg text-gray-200">
                 <HiLocationMarker className="mr-2" />
                 {destination.location}
@@ -79,7 +80,7 @@ const DestinationDetail = () => {
             <div className="min-h-[300px]">
               {activeTab === 'overview' && (
                 <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-                  <h3 className="text-2xl font-serif font-bold text-dark mb-4">About the Trip</h3>
+                  <h3 className="text-2xl font-bold text-dark mb-4">About the Trip</h3>
                   <p className="text-gray-600 leading-relaxed mb-6 text-lg">{destination.description}</p>
                   <p className="text-gray-600 leading-relaxed mb-6">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
@@ -126,7 +127,7 @@ const DestinationDetail = () => {
                     {destination.images.map((img, i) => (
                       <img 
                         key={i} 
-                        src={img} 
+                        src={getAssetPath(img)} 
                         alt={`Gallery ${i}`} 
                         className="rounded-lg w-full h-64 object-cover shadow-md hover:shadow-xl transition-shadow"
                       />

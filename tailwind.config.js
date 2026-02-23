@@ -13,8 +13,7 @@ export default {
         light: "#F3F4F6",
       },
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
-        serif: ['Playfair Display', 'serif'],
+        sans: ['Plus Jakarta Sans', 'sans-serif'],
       },
     },
   },

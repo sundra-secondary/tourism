@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { HiLocationMarker, HiStar } from 'react-icons/hi';
 import { destinations } from '../../data/destinations';
+import { getAssetPath } from '../../utils/pathUtils';
 
 const featuredDestinations = destinations.slice(0, 3);
 
@@ -11,7 +12,7 @@ const DestinationList = () => {
     <section className="py-20 bg-light">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-serif font-bold text-dark mb-4">Popular Destinations</h2>
+          <h2 className="text-4xl font-bold text-dark mb-4">Popular Destinations</h2>
           <p className="text-gray-600 max-w-2xl mx-auto">From historical cities to tropical paradises, explore our most sought-after locations curated just for you.</p>
         </div>
 
@@ -27,7 +28,7 @@ const DestinationList = () => {
             >
               <div className="relative h-64 overflow-hidden">
                 <img 
-                  src={dest.image} 
+                  src={getAssetPath(dest.image)} 
                   alt={dest.title} 
                   className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
                 />
@@ -44,7 +45,7 @@ const DestinationList = () => {
                   {dest.location}
                 </div>
                 
-                <h3 className="text-xl font-bold text-dark mb-2 font-serif group-hover:text-primary transition-colors">{dest.title}</h3>
+                <h3 className="text-xl font-bold text-dark mb-2 group-hover:text-primary transition-colors">{dest.title}</h3>
                 
                 <div className="flex justify-between items-center mt-4 pt-4 border-t border-gray-100">
                   <div className="flex flex-col">

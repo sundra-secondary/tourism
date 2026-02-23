@@ -50,7 +50,7 @@ const Navbar = () => {
         {/* Logo */}
         <Link 
           to="/" 
-          className={`text-2xl font-bold font-serif z-50 relative transition-colors duration-300 ${
+          className={`text-2xl font-bold z-50 relative transition-colors duration-300 ${
             isOpen ? 'text-dark' : (showBackground ? 'text-primary' : 'text-white')
           }`}
         >
@@ -105,7 +105,7 @@ const Navbar = () => {
                 >
                   <Link 
                     to={link.path} 
-                    className={`block text-3xl font-serif py-3 border-b border-gray-100 ${
+                    className={`block text-3xl py-3 border-b border-gray-100 ${
                       location.pathname === link.path ? 'text-primary' : 'text-dark hover:text-secondary'
                     }`}
                   >

@@ -1,5 +1,6 @@
 
 import { motion } from 'framer-motion';
+import { getAssetPath } from '../utils/pathUtils';
 
 const About = () => {
   return (
@@ -7,7 +8,7 @@ const About = () => {
       {/* Hero */}
       <div className="relative h-[400px] w-full mb-12">
         <img 
-          src="/images/dochula.jpg" 
+          src={getAssetPath("/images/dochula.jpg")} 
           alt="About Bhutan" 
           className="w-full h-full object-cover"
         />
@@ -17,7 +18,7 @@ const About = () => {
             animate={{ opacity: 1, y: 0 }}
             className="text-center text-white"
           >
-            <h1 className="text-4xl md:text-5xl font-serif font-bold mb-4">About Wanderlust</h1>
+            <h1 className="text-3xl md:text-5xl font-bold mb-4">About Wanderlust</h1>
             <p className="text-xl max-w-2xl mx-auto px-4">Passionate about curating unforgettable journeys.</p>
           </motion.div>
         </div>
@@ -32,7 +33,7 @@ const About = () => {
             viewport={{ once: true }}
             className="space-y-6"
           >
-            <h2 className="text-3xl font-serif font-bold text-dark">Our Story</h2>
+            <h2 className="text-3xl font-bold text-dark">Our Story</h2>
             <p className="text-gray-600 leading-relaxed">
               Founded in 2020 by a group of avid local travelers, Wanderlust was born out of a simple desire: to share the magic of the Land of the Thunder Dragon. We believed that travel is not just about visiting new places, but about the spiritual connection, the Gross National Happiness, and the memories we create.
             </p>
@@ -46,8 +47,8 @@ const About = () => {
             viewport={{ once: true }}
             className="grid grid-cols-1 sm:grid-cols-2 gap-4"
           >
-            <img src="/images/culture_2.jpg" alt="Bhutanese Monk" className="rounded-lg shadow-lg w-full h-48 object-cover mt-8" />
-            <img src="/images/paro.jpg" alt="Bhutan Architecture" className="rounded-lg shadow-lg w-full h-48 object-cover" />
+            <img src={getAssetPath("/images/culture_2.jpg")} alt="Bhutanese Monk" className="rounded-lg shadow-lg w-full h-48 object-cover mt-8" />
+            <img src={getAssetPath("/images/paro.jpg")} alt="Bhutan Architecture" className="rounded-lg shadow-lg w-full h-48 object-cover" />
           </motion.div>
         </div>
 
@@ -63,7 +64,7 @@ const About = () => {
 
         {/* Mission */}
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <h2 className="text-3xl font-serif font-bold text-dark mb-6">Our Mission</h2>
+          <h2 className="text-3xl font-bold text-dark mb-6">Our Mission</h2>
           <p className="text-gray-600 text-lg leading-relaxed">
             "To inspire and enable people to explore the world with curiosity, respect, and wonder. We strive to make travel accessible, sustainable, and transformative for everyone."
           </p>

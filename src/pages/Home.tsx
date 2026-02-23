@@ -2,6 +2,7 @@
 import HeroSection from '../components/Features/HeroSection';
 import DestinationList from '../components/Features/DestinationList';
 import { motion } from 'framer-motion';
+import { getAssetPath } from '../utils/pathUtils';
 
 const Home = () => {
   return (
@@ -20,7 +21,7 @@ const Home = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8 }}
-                src="/images/culture_1.jpg" 
+                src={getAssetPath("/images/culture_1.jpg")} 
                 alt="Bhutanese Culture" 
                 className="rounded-2xl shadow-2xl w-full h-[500px] object-cover"
               />
@@ -31,7 +32,7 @@ const Home = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
-                className="text-4xl font-serif font-bold text-dark"
+                className="text-4xl font-bold text-dark"
               >
                 Why Choose <span className="text-secondary">Wanderlust?</span>
               </motion.h2>

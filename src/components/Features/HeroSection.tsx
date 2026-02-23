@@ -1,6 +1,7 @@
 
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { getAssetPath } from '../../utils/pathUtils';
 
 const HeroSection = () => {
   return (
@@ -8,7 +9,7 @@ const HeroSection = () => {
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <img 
-          src="/images/hero_bg.jpg" 
+          src={getAssetPath("/images/hero_bg.jpg")} 
           alt="Bhutan Landscape" 
           className="w-full h-full object-cover"
         />
@@ -21,9 +22,9 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-4xl md:text-6xl lg:text-8xl font-serif font-bold text-white mb-6 leading-tight"
+          className="text-4xl md:text-5xl lg:text-7xl font-bold text-white mb-6 leading-tight"
         >
-          Experience the Magic of <span className="text-secondary font-script">Bhutan</span>
+          Experience the Magic of <span className="text-secondary">Bhutan</span>
         </motion.h1>
         
         <motion.p 
