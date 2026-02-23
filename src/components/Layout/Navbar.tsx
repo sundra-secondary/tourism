@@ -26,8 +26,10 @@ const Navbar = () => {
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
+      document.documentElement.style.overflow = 'hidden';
     } else {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
     }
     return () => {
       document.body.style.overflow = 'unset';
@@ -58,7 +60,7 @@ const Navbar = () => {
         </Link>
         
         {/* Desktop Menu */}
-        <div className="hidden md:flex items-center space-x-8">
+        <div className={`hidden md:flex items-center space-x-8 ${isOpen ? 'invisible' : ''}`}>
           {navLinks.map((link) => (
             <Link 
               key={link.title} 
@@ -70,7 +72,7 @@ const Navbar = () => {
           ))}
           <Link 
             to="/destinations" 
-            className="px-5 py-2.5 bg-secondary text-white text-sm font-medium rounded-full hover:bg-orange-600 transition-colors shadow-lg shadow-orange-500/30"
+            className="px-5 py-2.5 bg-secondary text-white text-sm font-medium rounded-full hover:bg-orange-600 transition-colors shadow-lg shadow-secondary/30"
           >
             Book Now
           </Link>
@@ -78,56 +80,94 @@ const Navbar = () => {
 
         {/* Mobile Menu Button */}
         <button 
-          className="md:hidden z-50 text-2xl focus:outline-none"
+          className="md:hidden z-50 p-2 -mr-2 text-2xl focus:outline-none transition-transform active:scale-95"
           onClick={() => setIsOpen(!isOpen)}
+          aria-label="Toggle Menu"
         >
-          {isOpen ? <HiX className="text-dark" /> : <HiMenuAlt3 className={showBackground ? 'text-dark' : 'text-white'} />}
+          <div className="relative w-6 h-6">
+            <AnimatePresence mode="wait">
+              {isOpen ? (
+                <motion.div
+                  key="close"
+                  initial={{ opacity: 0, rotate: -90 }}
+                  animate={{ opacity: 1, rotate: 0 }}
+                  exit={{ opacity: 0, rotate: 90 }}
+                >
+                  <HiX className="text-dark text-3xl" />
+                </motion.div>
+              ) : (
+                <motion.div
+                  key="menu"
+                  initial={{ opacity: 0, rotate: 90 }}
+                  animate={{ opacity: 1, rotate: 0 }}
+                  exit={{ opacity: 0, rotate: -90 }}
+                >
+                  <HiMenuAlt3 className={showBackground ? 'text-dark text-3xl' : 'text-white text-3xl'} />
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
         </button>
       </div>
 
       {/* Mobile Menu Overlay */}
       <AnimatePresence>
         {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, x: '100%' }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: '100%' }}
-            transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-            className="fixed inset-0 bg-white z-40 flex flex-col pt-24 px-6 md:hidden"
-          >
-            <div className="flex flex-col space-y-4">
-              {navLinks.map((link, idx) => (
+          <>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 bg-dark/40 backdrop-blur-sm z-40 md:hidden"
+              onClick={() => setIsOpen(false)}
+            />
+            <motion.div
+              initial={{ x: '100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '100%' }}
+              transition={{ type: 'spring', damping: 30, stiffness: 300 }}
+              className="fixed right-0 top-0 bottom-0 w-[85%] max-w-sm bg-white z-[60] flex flex-col pt-24 px-8 md:hidden shadow-[-20px_0_50px_rgba(0,0,0,0.1)]"
+            >
+              <div className="flex flex-col space-y-2">
+                {navLinks.map((link, idx) => (
+                  <motion.div
+                    key={link.title}
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.1 + idx * 0.1 }}
+                  >
+                    <Link 
+                      to={link.path} 
+                      className={`block text-2xl font-bold py-4 transition-colors ${
+                        location.pathname === link.path ? 'text-primary' : 'text-dark hover:text-secondary'
+                      }`}
+                    >
+                      {link.title}
+                    </Link>
+                  </motion.div>
+                ))}
+                
                 <motion.div
-                  key={link.title}
-                  initial={{ opacity: 0, y: 10 }}
+                  initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.1 + idx * 0.05 }}
+                  transition={{ delay: 0.5 }}
+                  className="pt-8 border-t border-gray-100 mt-6"
                 >
                   <Link 
-                    to={link.path} 
-                    className={`block text-3xl py-3 border-b border-gray-100 ${
-                      location.pathname === link.path ? 'text-primary' : 'text-dark hover:text-secondary'
-                    }`}
+                    to="/destinations" 
+                    className="block w-full text-center py-4 bg-secondary text-white text-lg font-bold rounded-2xl shadow-xl shadow-secondary/30 hover:shadow-secondary/40 active:scale-[0.98] transition-all"
                   >
-                    {link.title}
+                    Book Your Trip
                   </Link>
+                  <div className="mt-8 pt-8 border-t border-gray-50">
+                    <p className="text-gray-400 text-xs font-medium uppercase tracking-widest mb-4">Contact Info</p>
+                    <p className="text-dark font-medium text-sm mb-2">Thimphu, Bhutan</p>
+                    <p className="text-gray-500 text-sm">info@wanderlust.com</p>
+                  </div>
                 </motion.div>
-              ))}
-              <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3 }}
-                className="pt-6"
-              >
-                <Link 
-                  to="/destinations" 
-                  className="block w-full text-center py-4 bg-secondary text-white text-xl font-bold rounded-xl shadow-lg shadow-orange-500/30"
-                >
-                  Book Now
-                </Link>
-              </motion.div>
-            </div>
-          </motion.div>
+              </div>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
     </nav>
