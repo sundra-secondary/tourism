@@ -48,11 +48,11 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className={`fixed w-full z-[100] transition-all duration-300 ${showBackground ? 'py-4' : 'py-6'}`}>
+      <nav className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 ${showBackground ? 'py-4' : 'py-6'}`}>
         {/* Separated background to avoid backdrop-filter containing block issues for children */}
         <div className={`absolute inset-0 transition-all duration-300 ${showBackground ? 'bg-white/95 backdrop-blur-lg shadow-lg' : 'bg-transparent'}`} />
         
-        <div className="container mx-auto px-4 md:px-6 flex justify-between items-center relative z-10">
+        <div className="flex w-full px-4 md:px-8 justify-between items-center relative z-10">
           {/* Logo */}
           <Link 
             to="/" 
@@ -84,11 +84,11 @@ const Navbar = () => {
 
           {/* Mobile Menu Button */}
           <button 
-            className="md:hidden p-2 -mr-2 text-2xl focus:outline-none transition-transform active:scale-95"
+            className="md:hidden p-2 text-2xl focus:outline-none transition-transform active:scale-95 flex items-center justify-center"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle Menu"
           >
-            <div className="relative w-6 h-6 flex items-center justify-center">
+            <div className="relative w-7 h-7 flex items-center justify-center">
               <AnimatePresence mode="wait">
                 {isOpen ? (
                   <motion.div

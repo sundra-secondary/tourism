@@ -16,9 +16,10 @@ const About = () => {
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
             className="text-center text-white"
           >
-            <h1 className="text-3xl md:text-5xl font-bold mb-4">About Wanderlust</h1>
+            <h1 className="text-3xl md:text-5xl font-bold mb-4 break-words">About Wanderlust</h1>
             <p className="text-xl max-w-2xl mx-auto px-4">Passionate about curating unforgettable journeys.</p>
           </motion.div>
         </div>
@@ -53,8 +54,8 @@ const About = () => {
         </div>
 
         {/* Stats */}
-        <div className="bg-primary/5 rounded-2xl p-12 mb-20">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <div className="bg-primary/5 rounded-2xl p-6 md:p-12 mb-20">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-y-8 gap-x-4 text-center">
             <StatItem number="500+" label="Destinations" />
             <StatItem number="10k+" label="Happy Travelers" />
             <StatItem number="150+" label="Partners" />
