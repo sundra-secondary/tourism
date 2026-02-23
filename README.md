@@ -1,5 +1,7 @@
 # Wanderlust - Bhutan Tourism
 
+[![Live Site](https://img.shields.io/badge/Live-Demo-brightgreen)](https://sundra-secondary.github.io/tourism/)
+
 Wanderlust is a premium, responsive tourism website dedicated to the Land of the Thunder Dragon. This project converts a generic tourism template into a specialized Bhutan travel experience, featuring local destinations, cultural insights, and pricing in Bhutanese Ngultrum (Nu).
 
 ![Wanderlust Hero](./public/images/hero_bg.jpg)
