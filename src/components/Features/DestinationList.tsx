@@ -4,10 +4,13 @@ import { Link } from 'react-router-dom';
 import { HiLocationMarker, HiStar } from 'react-icons/hi';
 import { destinations } from '../../data/destinations';
 import { getAssetPath } from '../../utils/pathUtils';
+import { useCurrency } from '../../context/CurrencyContext';
 
 const featuredDestinations = destinations.slice(0, 3);
 
 const DestinationList = () => {
+  const { convert } = useCurrency();
+
   return (
     <section className="py-20 bg-light">
       <div className="container mx-auto px-4">
@@ -50,7 +53,7 @@ const DestinationList = () => {
                 <div className="flex justify-between items-center mt-4 pt-4 border-t border-gray-100">
                   <div className="flex flex-col">
                     <span className="text-gray-400 text-xs uppercase tracking-wider">Starts from</span>
-                    <span className="text-lg font-bold text-secondary">{dest.price}</span>
+                    <span className="text-lg font-bold text-secondary">{convert(dest.basePrice)}</span>
                   </div>
                   
                   <Link 

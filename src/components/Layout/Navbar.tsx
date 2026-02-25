@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { HiMenuAlt3, HiX } from 'react-icons/hi';
+import CurrencySelector from '../CurrencySelector';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -64,22 +65,28 @@ const Navbar = () => {
           </Link>
           
           {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-8">
-            {navLinks.map((link) => (
+          <div className="hidden md:flex items-center space-x-6">
+            <div className="flex items-center space-x-8 mr-4">
+              {navLinks.map((link) => (
+                <Link 
+                  key={link.title} 
+                  to={link.path} 
+                  className={`text-sm font-medium hover:text-secondary transition-colors ${showBackground ? 'text-dark' : 'text-white/90 hover:text-white'}`}
+                >
+                  {link.title}
+                </Link>
+              ))}
+            </div>
+            
+            <div className="flex items-center space-x-4 border-l border-gray-200/20 pl-6">
+              <CurrencySelector light={!showBackground} />
               <Link 
-                key={link.title} 
-                to={link.path} 
-                className={`text-sm font-medium hover:text-secondary transition-colors ${showBackground ? 'text-dark' : 'text-white/90 hover:text-white'}`}
+                to="/destinations" 
+                className="px-5 py-2.5 bg-secondary text-white text-sm font-medium rounded-full hover:bg-orange-600 transition-colors shadow-lg shadow-secondary/30"
               >
-                {link.title}
+                Book Now
               </Link>
-            ))}
-            <Link 
-              to="/destinations" 
-              className="px-5 py-2.5 bg-secondary text-white text-sm font-medium rounded-full hover:bg-orange-600 transition-colors shadow-lg shadow-secondary/30"
-            >
-              Book Now
-            </Link>
+            </div>
           </div>
 
           {/* Mobile Menu Button */}
@@ -160,6 +167,10 @@ const Navbar = () => {
                   transition={{ delay: 0.5 }}
                   className="pt-8 border-t border-gray-100 mt-6"
                 >
+                  <div className="mb-6 flex items-center justify-between px-2">
+                    <span className="text-gray-500 font-medium">Currency</span>
+                    <CurrencySelector />
+                  </div>
                   <Link 
                     to="/destinations" 
                     className="block w-full text-center py-4 bg-secondary text-white text-lg font-bold rounded-2xl shadow-xl shadow-secondary/30 hover:shadow-secondary/40 active:scale-[0.98] transition-all"

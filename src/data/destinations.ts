@@ -4,6 +4,7 @@ export interface Destination {
   title: string;
   image: string;
   price: string;
+  basePrice: number;
   rating: number;
   location: string;
   type: 'Beach' | 'Mountain' | 'City' | 'Cultural';
@@ -17,6 +18,7 @@ export const destinations: Destination[] = [
     title: 'Paro Taktsang (Tiger\'s Nest)',
     image: '/images/paro.jpg',
     price: 'Nu 5,000',
+    basePrice: 5000,
     rating: 4.9,
     location: 'Paro, Bhutan',
     type: 'Cultural',
@@ -32,6 +34,7 @@ export const destinations: Destination[] = [
     title: 'Punakha Dzong',
     image: '/images/punakha.jpg',
     price: 'Nu 4,500',
+    basePrice: 4500,
     rating: 4.8,
     location: 'Punakha, Bhutan',
     type: 'Cultural',
@@ -47,6 +50,7 @@ export const destinations: Destination[] = [
     title: 'Phobjikha Valley',
     image: '/images/phobjikha.jpg',
     price: 'Nu 6,000',
+    basePrice: 6000,
     rating: 4.7,
     location: 'Wangdue Phodrang, Bhutan',
     type: 'Mountain',
@@ -62,6 +66,7 @@ export const destinations: Destination[] = [
     title: 'Thimphu City',
     image: '/images/thimphu.jpg',
     price: 'Nu 3,500',
+    basePrice: 3500,
     rating: 4.6,
     location: 'Thimphu, Bhutan',
     type: 'City',
@@ -77,10 +82,11 @@ export const destinations: Destination[] = [
     title: 'Bumthang Valley',
     image: '/images/bumthang.jpg',
     price: 'Nu 7,000',
+    basePrice: 7000,
     rating: 4.8,
     location: 'Bumthang, Bhutan',
     type: 'Cultural',
-    description: 'The spiritual heartland of Bhutan, dotted with some of the kingdom\'s oldest and most sacred temples.',
+    description: 'The spiritual heartland of Bhutan, dotted with some of the kingdom\'s oldest and most sacred templates.',
     images: [
       '/images/bumthang.jpg',
       '/images/culture_1.jpg',
@@ -92,6 +98,7 @@ export const destinations: Destination[] = [
     title: 'Dochula Pass',
     image: '/images/dochula.jpg',
     price: 'Nu 2,500',
+    basePrice: 2500,
     rating: 4.9,
     location: 'Thimphu-Punakha Highway, Bhutan',
     type: 'Mountain',

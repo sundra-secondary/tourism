@@ -5,8 +5,10 @@ import { Link } from 'react-router-dom';
 import { HiLocationMarker, HiStar, HiSearch } from 'react-icons/hi';
 import { destinations } from '../data/destinations';
 import { getAssetPath } from '../utils/pathUtils';
+import { useCurrency } from '../context/CurrencyContext';
 
 const Destinations = () => {
+  const { convert } = useCurrency();
   const [filter, setFilter] = useState('All');
   const [searchTerm, setSearchTerm] = useState('');
 
@@ -92,7 +94,7 @@ const Destinations = () => {
                 <div className="flex justify-between items-center mt-4 pt-4 border-t border-gray-100">
                   <div className="flex flex-col">
                     <span className="text-gray-400 text-xs uppercase tracking-wider">Starts from</span>
-                    <span className="text-lg font-bold text-secondary">{dest.price}</span>
+                    <span className="text-lg font-bold text-secondary">{convert(dest.basePrice)}</span>
                   </div>
                   <Link 
                     to={`/destinations/${dest.id}`} 

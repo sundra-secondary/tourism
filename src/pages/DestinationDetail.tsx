@@ -5,9 +5,11 @@ import { HiLocationMarker, HiStar, HiClock, HiCheck } from 'react-icons/hi';
 import { destinations } from '../data/destinations';
 import { useState } from 'react';
 import { getAssetPath } from '../utils/pathUtils';
+import { useCurrency } from '../context/CurrencyContext';
 
 const DestinationDetail = () => {
   const { id } = useParams();
+  const { convert } = useCurrency();
   const destination = destinations.find(d => d.id === Number(id));
   const [activeTab, setActiveTab] = useState('overview');
 
@@ -143,7 +145,7 @@ const DestinationDetail = () => {
               <div className="flex justify-between items-end mb-4">
                 <div>
                   <span className="text-gray-500 text-sm">Price per person</span>
-                  <div className="text-3xl font-bold text-dark">{destination.price}</div>
+                  <div className="text-3xl font-bold text-dark">{convert(destination.basePrice)}</div>
                 </div>
                 <div className="text-sm font-bold text-primary bg-primary/10 px-3 py-1 rounded-full">
                    7 Days / 6 Nights
